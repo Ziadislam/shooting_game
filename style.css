@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+body {
+    background-color: #080a0f;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+#game-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #141a26 0%, #05070a 100%);
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Top Bar */
+#top-bar {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.score-panel {
+    background: rgba(10, 15, 25, 0.9);
+    border: 2px solid #00ffcc;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.3);
+}
+
+.high-score {
+    font-size: 12px;
+    color: #ffaa00;
+    margin-top: 2px;
+}
+
+.top-buttons {
+    display: flex;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+#menu-btn, #skins-btn {
+    background: #ffaa00;
+    color: #000;
+    border: none;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 0 12px rgba(255, 170, 0, 0.4);
+    cursor: pointer;
+}
+
+#skins-btn {
+    background: #00ffcc;
+}
+
+/* Menus Dropdown */
+#music-menu, #skins-menu {
+    position: absolute;
+    top: 65px;
+    right: 15px;
+    width: 260px;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(12, 16, 24, 0.97);
+    border: 2px solid #ffaa00;
+    border-radius: 8px;
+    padding: 12px;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+#music-menu.hidden, #skins-menu.hidden, #game-over.hidden {
+    display: none !important;
+}
+
+#music-menu h3, #skins-menu h3 {
+    color: #ffaa00;
+    font-size: 13px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.song-btn, .skin-btn, #toggle-audio-btn {
+    background: #1a2232;
+    color: #fff;
+    border: 1px solid #334155;
+    padding: 8px;
+    border-radius: 4px;
+    text-align: right;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.song-btn.active, .skin-btn.active {
+    background: #00ffcc;
+    color: #000;
+    font-weight: bold;
+}
+
+.skin-btn.locked {
+    background: #2b1d1d;
+    color: #888;
+    border-color: #552222;
+    cursor: not-allowed;
+}
+
+#toggle-audio-btn {
+    background: #ffaa00;
+    color: #000;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 4px;
+}
+
+/* Mobile Controls - Fixed Shoot Button */
+#mobile-controls {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 15;
+}
+
+.ctrl-btn {
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.shoot-btn {
+    width: 95px;
+    height: 95px;
+    background: rgba(255, 51, 85, 0.35);
+    border: 3px solid #ff3355;
+    font-size: 16px;
+    color: #ff3355;
+    box-shadow: 0 0 20px rgba(255, 51, 85, 0.5);
+}
+
+.shoot-btn:active {
+    background: rgba(255, 51, 85, 0.85);
+    color: #fff;
+    transform: scale(0.95);
+}
+
+/* Game Over Screen */
+#game-over {
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 7, 12, 0.92);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 30;
+}
+
+#game-over h1 {
+    color: #ff3355;
+    font-size: 34px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255, 51, 85, 0.6);
+}
+
+#game-over p {
+    font-size: 20px;
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+#restart-btn {
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #00ffcc;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+}

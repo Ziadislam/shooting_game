@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ziad 2D Zombie Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <!-- Top Bar: Score, Skins & Music Menu Buttons -->
+        <div id="top-bar">
+            <div class="score-panel">
+                <div>SCORE: <span id="score">0</span></div>
+                <div class="high-score">BEST: <span id="high-score">0</span></div>
+            </div>
+            <div class="top-buttons">
+                <button id="skins-btn">👕 SKINS</button>
+                <button id="menu-btn">🎵 SONGS</button>
+            </div>
+        </div>
+
+        <!-- Skins Dropdown Menu (6 Skins Total) -->
+        <div id="skins-menu" class="hidden">
+            <h3>👕 SELECT SKIN 🛡️</h3>
+            <button class="skin-btn unlocked" data-skin="0">🔵 1. Tactical Blue (FREE)</button>
+            <button class="skin-btn locked" data-skin="1" id="skin-btn-1">🟡 2. Cyber Gold (500 PTS)</button>
+            <button class="skin-btn locked" data-skin="2" id="skin-btn-2">⚫ 3. Shadow Assassin (1000 PTS)</button>
+            <button class="skin-btn locked" data-skin="3" id="skin-btn-3">🔴 4. Crimson Berserker (1500 PTS)</button>
+            <button class="skin-btn locked" data-skin="4" id="skin-btn-4">🟢 5. Toxic Mutant (2000 PTS)</button>
+            <button class="skin-btn locked" data-skin="5" id="skin-btn-5">⚪ 6. Ghost Spectre (3000 PTS)</button>
+        </div>
+
+        <!-- Music Dropdown Menu -->
+        <div id="music-menu" class="hidden">
+            <h3>🎧 PLAYLIST 🎵</h3>
+            <button class="song-btn active" data-index="0">🎵 مافيا الشياطين 🎶</button>
+            <button class="song-btn" data-index="1">🎶 واكلين المستهبلة 🎵</button>
+            <button class="song-btn" data-index="2">🎵 هادي في قلبك طلقة 🎶</button>
+            <button class="song-btn" data-index="3">🎶 أنا مخنوق من كل الدنيا 🎵</button>
+            <button id="toggle-audio-btn">▶ PLAY / PAUSE</button>
+        </div>
+
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Mobile Touch Control: Fixed Shoot Button -->
+        <div id="mobile-controls">
+            <button id="btn-shoot" class="ctrl-btn shoot-btn">🔥 SHOOT</button>
+        </div>
+
+        <!-- Game Over Overlay -->
+        <div id="game-over" class="hidden">
+            <h1>OUTRIDERS OVER</h1>
+            <p>Score: <span id="final-score">0</span></p>
+            <button id="restart-btn">PLAY AGAIN</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
